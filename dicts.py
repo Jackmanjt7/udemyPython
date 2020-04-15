@@ -28,3 +28,9 @@ game_properties = ["current_score", "high_score", "number_of_lives", "items_in_i
 # Use the game_properties list and dict.fromkeys() to generate a dictionary with all values set to 0. Save the result to a variable called initial_game_state
 initial_game_state = dict.fromkeys(game_properties, 0)
 pprint.pprint(initial_game_state)
+
+
+#dictionary comprehension
+num_list = range(1,101)
+num = {num:("even" if num%2==0 else "odd") for num in num_list}
+pprint.pprint(num)
