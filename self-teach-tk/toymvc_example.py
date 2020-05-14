@@ -72,9 +72,9 @@ class Model:
 
 
 class View(tk.Toplevel):
-    def __init__(self, master):
+    def __init__(self, master, height, width):
         tk.Toplevel.__init__(self, master)
-        self.geometry("%dx%d" %(WINDOW_WIDTH,WINDOW_HEIGHT))
+        self.geometry("%dx%d" %(height,width))
         self.protocol('WM_DELETE_WINDOW', self.master.destroy)
         tk.Label(self, text='My Money').pack(side='left')
         self.moneyCtrl = tk.Entry(self, width=8)
@@ -98,7 +98,7 @@ class Controller:
     def __init__(self, root, height, width):
         self.model = Model()
         self.model.myMoney.addCallback(self.MoneyChanged)
-        self.view1 = View(root)
+        self.view1 = View(root, height, width)
         self.view2 = ChangerWidget(self.view1)
         self.view2.addButton.config(command=self.AddMoney)
         self.view2.removeButton.config(command=self.RemoveMoney)
